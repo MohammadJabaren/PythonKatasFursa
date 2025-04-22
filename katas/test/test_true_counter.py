@@ -11,10 +11,10 @@ class TestTrueCounter(unittest.TestCase):
 
         self.assertEqual(count_true_values([]), 0)
 
-    def test_full_true_counter(self):
+    def test_full_true_array(self):
 
         self.assertEqual(count_true_values([True,True,True]), 3)
 
-    def test_zero_true_counter(self):
+    def test_zero_true_array(self):
 
         self.assertEqual(count_true_values([False,False]), 0)
