@@ -1,10 +1,10 @@
 def count_true_values(array):
-    Counter = 0
-    for bool in array:
-        if bool:
-            Counter +=1
+    counter = 0
+    for state in array:
+        if state:
+            counter +=1
 
-    return Counter
+    return counter
 
 
 if __name__ == '__main__':
