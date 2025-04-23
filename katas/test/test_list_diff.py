@@ -1,7 +1,5 @@
 import unittest
 
-from pymacaroons.utils import equals
-
 from katas.list_diff import find_difference
 
 class TestDiffList(unittest.TestCase):
