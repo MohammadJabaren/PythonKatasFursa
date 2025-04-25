@@ -1,3 +1,13 @@
+
+def swap(matrix,i,j):
+    tmp = matrix[i][j]
+    matrix[i][j] = matrix[j][i]
+    matrix[j][i] = tmp
+
+
+
+
+
 def rotate_matrix(matrix):
     """
     Rotates the given square matrix 90 degrees clockwise in place.
@@ -5,7 +15,13 @@ def rotate_matrix(matrix):
     Args:
         matrix: the 2D square matrix to rotate
     """
-    pass
+    row = len(matrix)
+    matrix[:] = matrix[::-1]
+
+    for i in range(row):
+        for j in range(i+1,row):
+           swap(matrix,i,j)
+    return matrix
 
 
 def print_matrix(matrix):
