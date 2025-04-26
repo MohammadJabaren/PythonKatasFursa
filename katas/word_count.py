@@ -1,3 +1,4 @@
+import re
 def count_words(sentence):
     """
     Counts the number of words in a given sentence.
@@ -8,10 +9,13 @@ def count_words(sentence):
     Returns:
         the number of words in the sentence
     """
-    return 0
+    sentence = sentence.replace("'","")
+    sentence = re.findall(r'\b[a-zA-Z]+\b', sentence.replace("_",' '))
+
+    return len(sentence)
 
 
 if __name__ == '__main__':
-    sentence = "This is a sample sentence for counting words."
+    sentence = "I have 99 problems,but a code ain't one! ."
     word_count = count_words(sentence)
     print(word_count)  # 8 should be printed
