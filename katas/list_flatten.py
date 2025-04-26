@@ -18,7 +18,7 @@ def flatten_list(nested_list):
 def flatten_list_helper(nested_list,flat):
     for element in nested_list:
         if isinstance(element,list):
-           flatten_list_helper(element,flat)
+            flatten_list_helper(element,flat)
 
         else:
             flat.append(element)
@@ -28,13 +28,13 @@ def flatten_list_helper(nested_list,flat):
 
 
 if __name__ == '__main__':
-    nested_list = [
+    nested_list_2 = [
         1,
         [2, 3],
         [4, [5, 6]],
         7
     ]
 
-    flat_list = flatten_list(nested_list)
+    flat_list = flatten_list(nested_list_2)
 
     print(f"Flattened list: {flat_list}")  # Should be [1, 2, 3, 4, 5, 6, 7]
