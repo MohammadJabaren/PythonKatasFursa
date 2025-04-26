@@ -20,7 +20,7 @@ def rotate_matrix(matrix):
 
     for i in range(row):
         for j in range(i+1,row):
-           swap(matrix,i,j)
+            swap(matrix,i,j)
     return matrix
 
 
