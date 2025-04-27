@@ -1,4 +1,4 @@
-# Python Katas
+# Python Katas .
 
 Kata is a Japanese word (型 or 形) meaning "form".
 It refers to a detailed choreographed pattern of martial arts movements made to be practiced alone.
