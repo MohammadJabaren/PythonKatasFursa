@@ -10,7 +10,12 @@ def max_profit(prices):
     Returns:
         the maximum profit, or 0 if no profit can be achieved
     """
-    return 0
+    prof_sum = 0
+    for i in range(len(prices)-1):
+        prof = prices[i + 1] - prices[i]
+        if  prof > 0:
+            prof_sum += prof
+    return prof_sum
 
 
 if __name__ == '__main__':
