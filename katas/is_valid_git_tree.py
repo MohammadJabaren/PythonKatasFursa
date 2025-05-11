@@ -1,3 +1,7 @@
+from collections import deque
+from operator import truediv
+
+
 def is_valid_git_tree(tree_map):
     """
     Determines if a given tree structure represents a valid Git tree.
@@ -12,7 +16,29 @@ def is_valid_git_tree(tree_map):
     Returns:
         True if the tree is a valid Git tree, False otherwise
     """
-    return False
+    childrens = set(ch for set_ch in tree_map.values() for ch in set_ch)
+    all_nodes = set(tree_map.keys()) | childrens
+    roots = all_nodes - childrens
+
+    if len(roots) != 1:
+        return False
+
+    root = roots.pop()
+    visited = {child: False for child in all_nodes}
+    queue = deque([root])
+    visited[root] = True
+
+    while queue:
+        ch = queue.popleft()
+
+        for child in tree_map.get(ch,[]):
+            if visited[child]:
+                return False
+            visited[child] = True
+            queue.append(child)
+
+    return all(visited.values())
+
 
 
 if __name__ == '__main__':
@@ -20,7 +46,7 @@ if __name__ == '__main__':
         "A": ["B", "C"],
         "B": ["D"],
         "C": [],
-        "D": []
+
     }
 
     invalid_tree = {
