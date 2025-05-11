@@ -10,7 +10,15 @@ def max_profit(prices):
     Returns:
         the maximum profit, or 0 if no profit can be achieved
     """
-    return 0
+    min_price = float('inf')
+    max_price_to_sell = 0
+
+    for i in prices:
+        if i < min_price:
+            min_price = i
+        if i - min_price > max_price_to_sell:
+            max_price_to_sell = i - min_price
+    return max_price_to_sell
 
 
 if __name__ == '__main__':
