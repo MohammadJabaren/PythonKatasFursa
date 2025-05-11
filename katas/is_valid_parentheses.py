@@ -13,12 +13,26 @@ def is_valid_parentheses(s):
         True if the string has valid parentheses, False otherwise
     """
     # Hint for efficient implementation: stack
-    return False
+    stack = []
+    for pt in s:
+        if pt == '(' or pt == '{' or pt == '[':
+            stack.append(pt)
+        elif pt == ')':
+            if not stack or stack.pop() != '(':
+                return False
+        elif pt == '}':
+            if not stack or stack.pop() != '{':
+                return False
+        elif pt == ']':
+            if not stack or stack.pop() != '[':
+                return False
+
+    return not stack
 
 
 if __name__ == '__main__':
     valid_input = "()[]{}"
-    invalid_input1 = "(]"
+    invalid_input1 = "("
     invalid_input2 = "([)]"
     valid_input_nested = "{[]()}"
 
