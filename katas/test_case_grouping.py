@@ -31,7 +31,28 @@ def group_test_cases(test_case_group_sizes):
         a list of lists, where each inner list contains the indices of test cases
         that are grouped together
     """
-    return []
+    group_dic = {}
+    output = []
+
+    for i in range(len(test_case_group_sizes)):
+        key = test_case_group_sizes[i]
+
+        group = group_dic.get(key,[])
+        group.append(i)
+        group_dic[key] = group
+
+    for key in group_dic:
+        group = group_dic[key]
+        if len(group) % key != 0:
+            raise ValueError("Cannot group, Valid input")
+        i = 0
+        while i + key <= len(group):
+            output.append(group[i:i + key])
+            i += key
+
+    return output
+
+
 
 
 if __name__ == '__main__':
