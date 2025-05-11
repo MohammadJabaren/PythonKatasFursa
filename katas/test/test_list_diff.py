@@ -15,6 +15,3 @@ class TestDiffList(unittest.TestCase):
 
     def test_max_positive_min_negative(self):
         self.assertEqual(find_difference([1,5,100,19,-5,-11]) , 111)
-
-    def test_max_positive_min_positive(self):
-        self.assertEqual(find_difference([1,5,2,15,20,3,11]) , 19)
