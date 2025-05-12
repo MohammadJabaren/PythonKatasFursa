@@ -21,10 +21,23 @@ def max_storage_area(containers: List[int]) -> int:
     Returns:
         The area of the largest rectangle formed between containers
     """
-    return 0
+    l =  0
+    r = len(containers)-1
+    max_area = 0
+
+    while l < r:
+        capa_area = min(containers[l],containers[r]) * (r - l)
+        max_area = max(max_area,capa_area)
+
+        if containers[l] < containers[r]:
+            l +=1
+        else:
+            r -=1
+
+    return max_area
 
 
 if __name__ == "__main__":
-    containers = [2, 1, 5, 6, 2, 3]
+    containers = [6, 8, 5, 6, 1, 6]
     result = max_storage_area(containers)
-    print("Max storage area:", result)  # Expected output: 10
+    print("Max storage area:", result)  # Expected output: 30
