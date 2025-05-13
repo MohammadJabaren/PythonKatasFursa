@@ -1,0 +1,10 @@
+ {
+          "user": {
+            "age": 31,
+            "email": "john@example.com"
+          },
+          "settings": {
+            "language": "spanish",
+            "timezone": "UTC+1"
+          }
+ }

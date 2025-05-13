@@ -1,17 +1,10 @@
 {
-  "app": {
-    "name": "MyApp",
-    "version": "1.0.0",
-    "debug": true
-  },
-  "database": {
-    "host": "localhost",
-    "port": 5432,
-    "username": "dev_user",
-    "password": "dev_pass"
-  },
-  "logging": {
-    "level": "INFO",
-    "format": "json"
-  }
+          "user": {
+            "name": "John",
+            "age": 30
+          },
+          "settings": {
+            "theme": "light",
+            "language": "english"
+          }
 }
