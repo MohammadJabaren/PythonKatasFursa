@@ -57,11 +57,27 @@ def json_configs_merge(*json_paths: str) -> dict[str, Any]:
     Returns:
         dict: The merged configuration dictionary.
     """
-    return None
+    result = {}
+    for path_js in json_paths:
+        f = open(path_js,"r")
+        data = json.load(f)
+        result = json_configs_merge_helper(result,data)
+        f.close()
 
+    return result
+
+def json_configs_merge_helper(dict1 , dict2):
+        for key, value in dict2.items():
+            if key in dict1 and isinstance(dict1[key], dict) and isinstance(value, dict):
+                json_configs_merge_helper(dict1[key], value)
+            else:
+                dict1[key] = value
+        return dict1
 
 
 if __name__ == '__main__':
     # Example usage; make sure the files exist for this to run.
-    config = json_configs_merge('default.json', 'production.json', 'us-east-1-production.json')
+    config = json_configs_merge('configs/default.json', 'configs/local.json')
     print(config)
+
+
