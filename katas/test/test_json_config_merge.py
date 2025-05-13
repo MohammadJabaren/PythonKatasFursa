@@ -1,14 +1,17 @@
 import unittest
 from katas.json_config_merge import json_configs_merge
-
+import os
 
 class TestJsonConfigMerge(unittest.TestCase):
 
     def test_merge_configs(self):
 
+        base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
+        config_dir = os.path.join(base_dir, '../configs')  # Navigate to the configs folder
+
         file_paths = [
-            'katas/configs/default.json',
-            'katas/configs/local.json',
+            os.path.join(config_dir, 'default.json'),
+            os.path.join(config_dir, 'local.json')
         ]
 
         merged_config = json_configs_merge(*file_paths)
@@ -29,9 +32,12 @@ class TestJsonConfigMerge(unittest.TestCase):
         self.assertEqual(merged_config, expected_config)
 
     def test_another_merge_configs(self):
+        base_dir = os.path.dirname(os.path.abspath(__file__))  # Get the directory of the current script
+        config_dir = os.path.join(base_dir, '../configs')  # Navigate to the configs folder
+
         file_paths = [
-            '../configs/production.json',
-            '../configs/us-east-1-production.json',
+            os.path.join(config_dir, 'production.json'),
+            os.path.join(config_dir, 'us-east-1-production.json')
         ]
         merged_config = json_configs_merge(*file_paths)
 
