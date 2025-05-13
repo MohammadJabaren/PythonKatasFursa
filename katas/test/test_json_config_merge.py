@@ -7,8 +7,8 @@ class TestJsonConfigMerge(unittest.TestCase):
     def test_merge_configs(self):
 
         file_paths = [
-            '../configs/default.json',
-            '../configs/local.json',
+            'katas/configs/default.json',
+            'katas/configs/local.json',
         ]
 
         merged_config = json_configs_merge(*file_paths)
